@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void addStudentData(studentData *students, string studentName, int homework, int recitation, int quiz, int exam, int length){
+void addStudentData(studentData students[], string studentName, int homework, int recitation, int quiz, int exam, int length){
     studentData student;
     student.studentName = studentName;
     student.homework = homework;

@@ -1,6 +1,6 @@
 #include "sortedArr.hpp"
 
-int addToArrayAsc(float (&sortedArr) [100], int elements, float newValue){
+int addToArrayAsc(float sortedArr[], int elements, float newValue){
     int index;
     if (elements == 0){
         sortedArr[0] = newValue;
