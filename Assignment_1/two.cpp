@@ -12,7 +12,6 @@ int main(int argc, char * argv[]){
         return -1;
     }
     
-    const int LENGTH = 10;
     string inFilename = argv[1];
     string outFilename = argv[2];
     char lower = argv[3][0];
@@ -26,7 +25,7 @@ int main(int argc, char * argv[]){
 
     string line;
     string name, homework, recitation, quiz, exam;
-    studentData students[LENGTH];
+    studentData students[10];
     int count = 0;
     while (getline(input, line)){
         stringstream s(line);
@@ -38,6 +37,7 @@ int main(int argc, char * argv[]){
         addStudentData(students, name, stoi(homework), stoi(recitation), stoi(quiz), stoi(exam), count);
         count++;
     }
+    printList(students, 10);
     input.close();
 
     ofstream output;
@@ -45,12 +45,13 @@ int main(int argc, char * argv[]){
     double max = avgFromLetter(upper);
     double min = avgFromLetter(lower);
     studentData student; 
-    for(int i = 0; i < LENGTH; i++){
+    for(int i = 0; i < 10; i++){
         student = students[i];
         if (student.average >= min && student.average <= max){
             output << student.studentName << "," << student.average << "," << student.letter << endl;
         }
         
     }
+    output.close();
     return 0;
 }
