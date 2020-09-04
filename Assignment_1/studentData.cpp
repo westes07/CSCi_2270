@@ -52,6 +52,6 @@ void printList(const studentData students[], int length){
     for(int i = 0; i < length; i++){
         student = students[i];
         cout << student.studentName << " earned " << student.average 
-        << " which is a(n): " << student.letter << endl;
+        << " which is an " << student.letter << endl;
     }
 }

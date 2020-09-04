@@ -37,15 +37,15 @@ int main(int argc, char * argv[]){
         addStudentData(students, name, stoi(homework), stoi(recitation), stoi(quiz), stoi(exam), count);
         count++;
     }
-    printList(students, 10);
+    printList(students, count);
     input.close();
 
     ofstream output;
     output.open(outFilename);
-    double max = avgFromLetter(upper);
+    double max = avgFromLetter(upper) + 10;
     double min = avgFromLetter(lower);
     studentData student; 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < count; i++){
         student = students[i];
         if (student.average >= min && student.average <= max){
             output << student.studentName << "," << student.average << "," << student.letter << endl;
