@@ -54,16 +54,21 @@ bool LinkedList::deleteAtIndex(int n)
 
   Node *pres = head;
 	Node *prev = NULL;
-
-  for (int i = 0; i < n; i++){
+  int i = 0;
+  while(i < n && pres != NULL){
     prev = pres;
     pres = pres->next;
+    i++;
   }
-
-  prev->next = pres->next;
-  delete pres;
-  isDeleted = true;
-
+  
+  if (pres != NULL){
+    prev->next = pres->next;
+    delete pres;
+    isDeleted = true;
+  } else {
+    cout << "List is only " << i+1 << " elements long." << endl;
+  }
+  
 	return isDeleted;
 }
 
