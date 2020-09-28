@@ -13,13 +13,21 @@ bool isValid(string input)
     for (int i=0; i<input.length(); i++)
     {
         // TODO If the character is an opening bracket push it in the stack and continue with the loop
+<<<<<<< HEAD
 
+=======
+        if (input[i] == '{' || input[i] == '(' || input[i] == '['){
+            stack.push(input[i]);
+        }
+        
+>>>>>>> 29dd5a9312e288d5ec2f579654d8970da59725b8
         // If it is not an opening bracket, then the stack shouldn't be empty
         if (stack.isEmpty())
            return false;
 
 
         //Switch cases for the closing brackets
+<<<<<<< HEAD
         switch (input[i])
         {
         case ')':
@@ -38,6 +46,30 @@ bool isValid(string input)
 
             // TODO Complete this section (similar to the case above)
             break;
+=======
+        switch (input[i]){
+            case ')':
+                // TODO first peek and then pop from stack
+                // if the popped character is the matching starting bracket then fine else parenthesis are not balanced
+                if (stack.peek() == '('){
+                    stack.pop();
+                }
+                break;
+
+            case '}':
+                // TODO Complete this section (similar to the case above)
+                if (stack.peek() == '{'){
+                    stack.pop();
+                }
+                break;
+
+            case ']':
+                // TODO Complete this section (similar to the case above)
+                if (stack.peek() == '['){
+                    stack.pop();
+                }
+                break;
+>>>>>>> 29dd5a9312e288d5ec2f579654d8970da59725b8
         }
 
 
