@@ -8,7 +8,7 @@ using namespace std;
 int* resize(int* arrayPtr, int &capacity)
 {
 	// TODO increase the capacity by two times
-	int newCapacity = capacity + 2;
+	int newCapacity = capacity * 2;
     cout<<"Resizing from "<<capacity<<" to "<<newCapacity<<endl;
 
 	// TODO dynamically allocate an array of size newCapacity
@@ -20,7 +20,7 @@ int* resize(int* arrayPtr, int &capacity)
 	}
 	
 	// TODO free the memory associated with oldArray
-	delete arrayPtr;
+	delete [] arrayPtr;
 	capacity = newCapacity;
 
 	// TODO return the newArray
