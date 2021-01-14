@@ -142,7 +142,10 @@ void CUBuildingNetwork::printNetwork() {
  */
 void CUBuildingNetwork::deleteCUBuilding(string buildingName) {
     //TODO: Complete this function
-    if(head == NULL){return;}
+    cout << buildingName << endl;
+    if(head == NULL){
+        return;
+    }
     if (head->next == NULL && head->name == buildingName){
         head = NULL;
         return;
@@ -160,6 +163,8 @@ void CUBuildingNetwork::deleteCUBuilding(string buildingName) {
         } else {
             prev->next = ptr->next;
         }
+    } else {
+        cout << "Building does not exist." << endl;
     }
     delete ptr;
 }
@@ -188,14 +193,15 @@ CUBuilding* CUBuildingNetwork::createLoop(string buildingName) {
  * @return: none
  */
 void CUBuildingNetwork::deleteEntireNetwork(){
-    if (head = NULL){
+    if (head == NULL){
         return;
     }
-    CUBuilding* ptr;
+    CUBuilding* ptr = head;
     while (ptr != NULL){
         ptr = head;
         head = ptr->next;
         deleteCUBuilding(ptr->name);
+        ptr = head;
     }
 }
 
